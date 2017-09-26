@@ -1,0 +1,527 @@
+#!/usr/bin/env bash
+##
+# Pearl Bootstrap
+# Copyright(c) 2012 King Pearl LLC
+##
+mkdir -p /var/tmp && cd /var/tmp
+
+# Set preferences
+PKG=preferences
+if [ ! -f .installed-$PKG ];
+then
+echo "Set preferences"
+touch .installed-$PKG && ~/.macOS
+fi
+
+# Set permissions
+PKG=permissions
+if [ ! -f .installed-$PKG ];
+then
+echo "Set $PKG"
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+touch .installed-$PKG
+fi
+
+# Create workspace
+PKG=workspace
+if [ ! -f .installed-$PKG ];
+then
+echo "Create $PKG"
+mkdir -p ~/.vim/{backups,bundle,swaps,undo}
+mkdir -p ~/{Machines,Projects}
+touch .installed-$PKG
+fi
+
+# Packages
+
+PKG=command_line_tools_for_os_x_for_xcode
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Command Line Tools"
+xcode-select --install && touch .installed-$PKG
+fi
+
+PKG=homebrew
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Homebrew"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && touch .installed-$PKG
+fi
+
+PKG=cask
+if [ ! -f .installed-$PKG ];
+then
+echo "Brew tap Cask"
+brew tap caskroom/$PKG && touch .installed-$PKG
+fi
+
+PKG=drivers
+if [ ! -f .installed-$PKG ];
+then
+echo "Brew tap Drivers"
+brew tap caskroom/$PKG && touch .installed-$PKG
+fi
+
+PKG=versions
+if [ ! -f .installed-$PKG ];
+then
+echo "Brew tap Versions"
+brew tap caskroom/$PKG && touch .installed-$PKG
+fi
+
+echo "Apple Software Update"
+sudo softwareupdate -i -a
+
+# PKG=fonts
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Brew tap Fonts"
+# brew tap caskroom/$PKG && touch .installed-$PKG
+# fi
+
+# PKG=razer-synapse
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Razer Synapse"
+# brew cask install $PKG
+# fi
+
+# PKG=sf-mono-font
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install SF Mono Font"
+# open /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/ && touch .installed-$PKG
+# fi
+
+# PKG=openconnect
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install OpenConnect"
+# brew install $PKG
+# fi
+
+# PKG=stoken
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install Stoken"
+# brew install $PKG
+# fi
+
+PKG=aspell
+if [ ! -d /usr/local/Cellar/$PKG ];
+then
+echo "Brew install Aspell"
+brew install $PKG
+fi
+
+PKG=the_silver_searcher
+if [ ! -d /usr/local/Cellar/$PKG ];
+then
+echo "Brew install The Silver Searcher"
+brew install $PKG
+fi
+
+# PKG=git-extras
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install Git Extras"
+# brew install $PKG
+# fi
+
+PKG=git-flow
+if [ ! -d /usr/local/Cellar/$PKG ];
+then
+echo "Brew install Git Flow"
+brew install $PKG
+fi
+
+# PKG=java
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Java"
+# brew cask install $PKG
+# fi
+
+PKG=node
+if [ ! -d /usr/local/Cellar/$PKG ];
+then
+echo "Brew install Node"
+brew install $PKG
+fi
+
+# echo "Update NPM"
+npm install -g npm
+
+PKG=tern
+if [ ! -f .installed-$PKG ];
+then
+echo "NPM install Tern"
+npm install -g $PKG && touch .installed-$PKG
+fi
+
+# PKG=create-react-native-app
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install React Native App"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=react-native-cli
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install React Native CLI"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=react-vr-cli
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install React VR CLI"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=cordova
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Cordova"
+# npm install -g $PKG && touch .installed-$PKG
+# npm install -g ios-sim ios-deploy
+# fi
+
+# PKG=ionic
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Ionic"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=now
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Now"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=tessel
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Tessel"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=particle-cli
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Particle"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=google-featured-photos
+#  if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install Google Featured Photos" && touch .installed-$PKG
+# brew cask install $PKG
+# fi
+
+PKG=spectacle
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Spectacle"
+brew cask install $PKG
+fi
+
+PKG=1password
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install 1Password"
+brew cask install $PKG
+fi
+
+PKG=slack
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Slack"
+brew cask install $PKG
+fi
+
+PKG=zoomus
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Zoom"
+brew cask install $PKG
+fi
+
+# PKG=transmit
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install Transmit"
+# brew cask install $PKG
+# fi
+
+# PKG=unison
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install Unison"
+# brew cask install $PKG
+# fi
+
+# PKG=openemu
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install OpenEmu"
+# brew cask install $PKG
+# fi
+
+# PKG=apple-configurator
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Apple Configurator" && touch .installed-$PKG
+# fi
+# PKG=apple-remote-desktop
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Apple Remote Desktop" && touch .installed-$PKG
+# fi
+# PKG=apple-iworks
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Apple iWorks" && touch .installed-$PKG
+# fi
+# PKG=apple-ibooks-author
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Apple iBooks Author" && touch .installed-$PKG
+# fi
+# fi
+# PKG=linkinus
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Linkinus" && touch .installed-$PKG
+# fi
+# PKG=writer-pro
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Writer Pro" && touch .installed-$PKG
+# fi
+# PKG=pocket
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Pocket" && touch .installed-$PKG
+# fi
+# PKG=twitter
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Twitter" && touch .installed-$PKG
+# fi
+# open -a /Applications/App\ Store.app && touch .installed-$PKG
+# PKG=affinity-photo
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Affinity Photo" && touch .installed-$PKG
+# fi
+# PKG=affinity-designer
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Affinity Designer" && touch .installed-$PKG
+# fi
+
+# PKG=omnigraffle
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install Omni Graffle"
+# brew cask install $PKG
+# fi
+
+# PKG=pixlr
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install Pixlr"
+# brew cask install $PKG
+# fi
+
+# PKG=sketch
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install Sketch"
+# brew cask install $PKG
+# fi
+
+# PKG=sketchbook
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Brew install SketchBook"
+# brew cask install $PKG
+# fi
+
+# PKG=microsoft-office
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Microsoft Office"
+# brew cask install $PKG
+# fi
+
+# PKG=adobe-dng-converter
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Adobe DNG Converter"
+# brew cask install $PKG
+# fi
+
+# PKG=amazon-music
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install Amazon Music"
+# brew cask install $PKG.rb
+# fi
+
+# PKG=firefox
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Firefox"
+# brew cask install $PKG
+# fi
+# PKG=firefoxdeveloperedition
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install Firefox Developer Edition"
+# brew cask install $PKG
+# fi
+
+PKG=google-chrome
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Google Chrome"
+brew cask install $PKG
+fi
+# PKG=google-chrome-canary
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install Google Chrome Canary"
+# brew cask install $PKG
+# fi
+
+# PKG=watchman
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install Watchman"
+# brew install $PKG
+# fi
+
+PKG=docker
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Docker"
+brew cask install $PKG
+fi
+
+PKG=virtualbox
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Oracle VirtualBox"
+brew cask install $PKG
+fi
+
+PKG=vagrant
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Vagrant"
+brew cask install $PKG
+fi
+
+PKG=terraform
+if [ ! -d /usr/local/Cellar/$PKG ];
+then
+echo "Brew install Terraform"
+brew install $PKG
+fi
+
+# PKG=up
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Apex"
+# curl https://raw.githubusercontent.com/apex/up/master/install.sh | bash
+# touch .installed-$PKG
+# fi
+
+# PKG=xcode
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Install Xcode" && touch .installed-$PKG
+# fi
+
+# PKG=android-studio
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Android Studio"
+# brew cask install $PKG
+# fi
+
+PKG=vundle
+if [ ! -f .installed-$PKG ];
+then
+echo "Brew install Vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+echo "colorscheme base16-spacemacs" >> ~/.vimrc
+touch .installed-$PKG
+fi
+
+PKG=emacs-plus
+if [ ! -d /usr/local/Cellar/$PKG ];
+then
+echo "Brew install Emacs Plus"
+brew tap d12frosted/$PKG
+brew install $PKG
+brew linkapps
+fi
+
+PKG=spacemacs
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Spacemacs"
+git clone https://github.com/syl20bnr/$PKG ~/.emacs.d
+touch .installed-$PKG
+fi
+
+# PKG=visual-studio-code
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Visual Studio Code"
+# brew cask install $PKG
+# fi
+
+# PKG=sencha
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Sencha CMD"
+# brew cask install $PKG
+# fi
+
+# PKG=sourcetree
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install SourceTree"
+# brew cask install $PKG
+# fi
+
+# PKG=mongodb-compass
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install MongoDB Compass"
+# brew cask install $PKG
+# fi
+
+# PKG=medis
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Medis"
+# brew cask install $PKG
+# fi
+
+# PKG=datagrip
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install DataGrip"
+# brew cask install $PKG
+# fi

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+##
+# Pearl Update
+# Copyright(c) 2014 King Pearl LLC
+##
+mkdir -p /var/tmp && cd /var/tmp
+
+echo "Apple Software Update"
+sudo softwareupdate -i -a
+
+echo "Brew update"
+brew update --all
+brew upgrade
+
+echo "Update NPM"
+npm install -g npm && npm update -g
