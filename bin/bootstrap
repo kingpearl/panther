@@ -80,6 +80,13 @@ sudo softwareupdate -i -a
 # brew tap caskroom/$PKG && touch .installed-$PKG
 # fi
 
+# PKG=bose-updater
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Bose Updater"
+# brew cask install $PKG
+# fi
+
 # PKG=razer-synapse
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
