@@ -259,6 +259,13 @@ echo "Brew install Slack"
 brew cask install $PKG
 fi
 
+# PKG=skype
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Skype"
+# brew cask install $PKG
+# fi
+
 PKG=zoomus
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 then
