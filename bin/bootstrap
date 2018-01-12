@@ -160,6 +160,13 @@ fi
 # echo "Update NPM"
 npm install -g npm
 
+PKG=js-beautify
+if [ ! -f .installed-$PKG ];
+then
+echo "NPM install JS Beautify"
+npm install -g $PKG && touch .installed-$PKG
+fi
+
 PKG=tern
 if [ ! -f .installed-$PKG ];
 then
@@ -167,10 +174,17 @@ echo "NPM install Tern"
 npm install -g $PKG && touch .installed-$PKG
 fi
 
+# PKG=create-react-app
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Create React App"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
 # PKG=create-react-native-app
 # if [ ! -f .installed-$PKG ];
 # then
-# echo "NPM install React Native App"
+# echo "NPM install Create React Native App"
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
