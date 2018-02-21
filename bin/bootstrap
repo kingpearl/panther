@@ -273,6 +273,13 @@ echo "Brew install Slack"
 brew cask install $PKG
 fi
 
+# PKG=microsoft-teams
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Microsoft Teams"
+# brew cask install $PKG
+# fi
+
 PKG=zoomus
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 then
