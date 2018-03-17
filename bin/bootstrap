@@ -308,6 +308,14 @@ fi
 # brew cask install $PKG
 # fi
 
+# PKG=battle-net
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Battle.net"
+# brew cask install $PKG
+# open /usr/local/Caskroom/battle-net/latest/Battle.net-Setup.app
+# fi
+
 # PKG=openemu
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
