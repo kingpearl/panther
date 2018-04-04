@@ -238,17 +238,39 @@ fi
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
+# PKG=osx-cross_avr
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Brew tap AVR"
+# brew tap osx-cross/avr && touch .installed-$PKG
+# fi
+# PKG=PX4_homebrew-px4
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Brew tap PX4"
+# brew tap PX4/homebrew-px4 && touch .installed-$PKG
+# fi
+# PKG=dfu-programmer
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Brew Install DFU Programmer"
+# brew install avr-gcc
+# brew install $PKG
+# brew install gcc-arm-none-eabi
+# brew install avrdude
+# fi
+
 # PKG=google-featured-photos
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
-# echo "Brew Install Google Featured Photos" && touch .installed-$PKG
+# echo "Brew Install Google Featured Photos"
 # brew cask install $PKG
 # fi
 
 PKG=aerial
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 then
-echo "Brew Install Aerial" && touch .installed-$PKG
+echo "Brew Install Aerial"
 brew cask install $PKG
 fi
 
