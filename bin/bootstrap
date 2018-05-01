@@ -101,18 +101,15 @@ sudo softwareupdate -i -a
 # open /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/ && touch .installed-$PKG
 # fi
 
-# PKG=openconnect
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# PKG=anyconnect
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install OpenConnect"
-# brew install $PKG
+# echo "Install Cisco AnyConnect" && touch .installed-$PKG
 # fi
-
-# PKG=stoken
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# PKG=rsa-secureid
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Stoken"
-# brew install $PKG
+# echo "Install RSA SecureId" && touch .installed-$PKG
 # fi
 
 PKG=aspell
