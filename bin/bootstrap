@@ -306,12 +306,12 @@ fi
 # brew cask install $PKG
 # fi
 
-PKG=zoomus
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew install Zoom"
-brew cask install $PKG
-fi
+# PKG=zoomus
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Zoom"
+# brew cask install $PKG
+# fi
 
 # PKG=transmit
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
