@@ -560,6 +560,13 @@ fi
 # brew cask install $PKG
 # fi
 
+# PKG=postman
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Postman"
+# brew cask install $PKG
+# fi
+
 # PKG=sencha
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
