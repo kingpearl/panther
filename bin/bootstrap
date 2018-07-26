@@ -484,12 +484,12 @@ echo "Brew install Docker"
 brew cask install $PKG
 fi
 
-PKG=virtualbox
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew install Oracle VirtualBox"
-brew cask install $PKG
-fi
+# PKG=virtualbox
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Oracle VirtualBox"
+# brew cask install $PKG
+# fi
 
 PKG=vagrant
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
@@ -542,7 +542,6 @@ then
 echo "Brew install Emacs Plus"
 brew tap d12frosted/$PKG
 brew install $PKG
-brew linkapps
 fi
 
 PKG=spacemacs
