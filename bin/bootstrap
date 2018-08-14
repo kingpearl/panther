@@ -101,6 +101,13 @@ sudo softwareupdate -i -a
 # open /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/ && touch .installed-$PKG
 # fi
 
+# PKG=p7zip
+# if [ ! -d /usr/local/Cellar/$PKG ];
+# then
+# echo "Brew install 7Z"
+# brew install $PKG
+# fi
+
 # PKG=anyconnect
 # if [ ! -f .installed-$PKG ];
 # then
