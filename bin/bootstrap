@@ -491,10 +491,10 @@ echo "Brew install Docker"
 brew cask install $PKG
 fi
 
-# PKG=vmware-fusion
+# PKG=virtualbox
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
-# echo "Brew install VMware Fusion"
+# echo "Brew install Virtualbox"
 # brew cask install $PKG
 # fi
 
@@ -504,13 +504,6 @@ then
 echo "Brew install Vagrant"
 brew cask install $PKG
 fi
-
-# PKG=vagrant-vmware-utility
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Vagrant VMware"
-# brew cask install $PKG
-# fi
 
 PKG=terraform
 if [ ! -d /usr/local/Cellar/$PKG ];
