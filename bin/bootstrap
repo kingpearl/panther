@@ -271,12 +271,12 @@ fi
 # brew cask install $PKG
 # fi
 
-PKG=aerial
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew Install Aerial"
-brew cask install $PKG
-fi
+# PKG=ios-saver
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew Install iOS Saver"
+# brew cask install $PKG
+# fi
 
 PKG=spectacle
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
