@@ -491,12 +491,12 @@ fi
 # brew cask install $PKG
 # fi
 
-PKG=vagrant
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew install Vagrant"
-brew cask install $PKG
-fi
+# PKG=vagrant
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Vagrant"
+# brew cask install $PKG
+# fi
 
 PKG=terraform
 if [ ! -d /usr/local/Cellar/$PKG ];
