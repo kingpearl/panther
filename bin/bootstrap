@@ -573,6 +573,14 @@ fi
 # brew cask install $PKG
 # fi
 
+# PKG=xamarin-android
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Xamarin Android"
+# brew cask install $PKG
+# fi
+
+
 # PKG=postman
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
