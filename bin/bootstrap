@@ -559,6 +559,20 @@ fi
 # brew cask install $PKG
 # fi
 
+# PKG=visual-studio
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Visual Studio"
+# brew cask install $PKG
+# fi
+
+# PKG=xamarin-ios
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Xamarin iOS"
+# brew cask install $PKG
+# fi
+
 # PKG=postman
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
