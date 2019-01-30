@@ -491,6 +491,13 @@ fi
 # brew cask install $PKG
 # fi
 
+# PKG=virtualbox-extension-pack
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Virtualbox Extension Pack"
+# brew cask install $PKG
+# fi
+
 # PKG=vagrant
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
