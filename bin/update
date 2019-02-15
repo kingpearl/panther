@@ -9,7 +9,7 @@ echo "Apple Software Update"
 sudo softwareupdate -i -a
 
 echo "Brew update"
-brew update --all
+brew update 
 brew upgrade
 
 echo "Update NPM"
