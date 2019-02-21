@@ -332,8 +332,23 @@ fi
 # then
 # echo "Brew install Battle.net"
 # brew cask install $PKG
-# open /usr/local/Caskroom/battle-net/latest/Battle.net-Setup.app
 # fi
+
+# PKG=epic-games
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Epic Games"
+# brew cask install $PKG
+# fi
+
+
+# PKG=steam
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Steam"
+# brew cask install $PKG
+# fi
+
 
 # PKG=openemu
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
