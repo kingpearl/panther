@@ -119,6 +119,13 @@ sudo softwareupdate -i -a
 # echo "Install RSA SecureId" && touch .installed-$PKG
 # fi
 
+# PKG=tunnelblick
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Tunnelblick"
+# brew cask install $PKG
+# fi
+
 PKG=aspell
 if [ ! -d /usr/local/Cellar/$PKG ];
 then
