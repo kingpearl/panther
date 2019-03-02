@@ -8,7 +8,8 @@ rmdir .git && g init && g ca && g remote add origin gh:kingpearl/panther.git && 
 vagrant up && vagrant ssh
 caffeinate -t 14400
 date '+%s'
-docker build -t kingpearl/cougar:0.9.15 .
-docker push kingpearl/cougar:0.9.15
-docker run -p 3000:3000 -itv ~/Projects/spawn:/docker kingpearl/cougar:0.9.15 bash
+docker build -t kingpearl/cougar:0.9.41 .
+docker push kingpearl/cougar:0.9.41
+docker run -p 3000:3000 -itv ~/:/docker kingpearl/cougar:0.9.41 bash
 docker rm $(docker ps -aqf status=exited)
+
