@@ -101,29 +101,53 @@ sudo softwareupdate -i -a
 # open /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/ && touch .installed-$PKG
 # fi
 
-# PKG=p7zip
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# pkg=p7zip
+# if [ ! -d /usr/local/cellar/$pkg ];
 # then
-# echo "Brew install 7Z"
-# brew install $PKG
+# echo "brew install 7z"
+# brew install $pkg
 # fi
 
-# PKG=anyconnect
-# if [ ! -f .installed-$PKG ];
+pkg=htop
+if [ ! -d /usr/local/cellar/$pkg ];
+then
+echo "brew install htop"
+brew install $pkg
+fi
+
+pkg=mutt
+if [ ! -d /usr/local/cellar/$pkg ];
+then
+echo "brew install Mutt"
+brew install $pkg
+fi
+
+pkg=newsboat
+if [ ! -d /usr/local/cellar/$pkg ];
+then
+echo "brew install Newsboat"
+brew install $pkg
+fi
+
+# pkg=openvpn
+# if [ ! -d /usr/local/cellar/$pkg ];
 # then
-# echo "Install Cisco AnyConnect" && touch .installed-$PKG
-# fi
-# PKG=rsa-secureid
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install RSA SecureId" && touch .installed-$PKG
+# echo "brew install OpenVPN"
+# brew install $pkg
 # fi
 
-# PKG=tunnelblick
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# pkg=openconnect
+# if [ ! -d /usr/local/cellar/$pkg ];
 # then
-# echo "Brew install Tunnelblick"
-# brew cask install $PKG
+# echo "brew install OpenConnect"
+# brew install $pkg
+# fi
+
+# pkg=stoken
+# if [ ! -d /usr/local/cellar/$pkg ];
+# then
+# echo "brew install stoken"
+# brew install $pkg
 # fi
 
 PKG=aspell
@@ -271,12 +295,12 @@ fi
 # brew install avrdude
 # fi
 
-# PKG=google-featured-photos
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew Install Google Featured Photos"
-# brew cask install $PKG
-# fi
+PKG=google-featured-photos
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew Install Google Featured Photos"
+brew cask install $PKG
+fi
 
 PKG=spectacle
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
@@ -341,21 +365,12 @@ fi
 # brew cask install $PKG
 # fi
 
-# PKG=epic-games
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Epic Games"
-# brew cask install $PKG
-# fi
-
-
 # PKG=steam
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
 # echo "Brew install Steam"
 # brew cask install $PKG
 # fi
-
 
 # PKG=openemu
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
