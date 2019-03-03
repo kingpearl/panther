@@ -122,6 +122,13 @@ echo "brew install Mutt"
 brew install $pkg
 fi
 
+pkg=lynx
+if [ ! -d /usr/local/cellar/$pkg ];
+then
+echo "brew install Lynx"
+brew install $pkg
+fi
+
 pkg=newsboat
 if [ ! -d /usr/local/cellar/$pkg ];
 then
