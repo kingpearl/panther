@@ -344,6 +344,13 @@ fi
 # brew cask install $PKG
 # fi
 
+# PKG=skype-for-business
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Skype for Business"
+# brew cask install $PKG
+# fi
+
 # PKG=zoomus
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
