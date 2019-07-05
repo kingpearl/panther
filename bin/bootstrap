@@ -653,10 +653,10 @@ fi
 # brew cask install $PKG
 # fi
 
-# PKG=sourcetree
+# PKG=fork
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
-# echo "Brew install SourceTree"
+# echo "Brew install Fork"
 # brew cask install $PKG
 # fi
 
