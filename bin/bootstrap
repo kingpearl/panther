@@ -94,6 +94,14 @@ sudo softwareupdate -i -a
 # brew cask install $PKG
 # fi
 
+# PKG=zsa-wally
+# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# then
+# echo "Brew install Wally"
+# brew cask install $PKG
+# fi
+
+
 # PKG=sf-mono-font
 # if [ ! -f .installed-$PKG ];
 # then
