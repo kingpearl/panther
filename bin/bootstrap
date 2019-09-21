@@ -352,13 +352,6 @@ fi
 # brew cask install $PKG
 # fi
 
-# PKG=skype-for-business
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Skype for Business"
-# brew cask install $PKG
-# fi
-
 # PKG=zoomus
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 # then
@@ -496,10 +489,10 @@ fi
 # brew cask install $PKG
 # fi
 
-# PKG=amazon-music
+# PKG=spotify
 # if [ ! -d /usr/local/Cellar/$PKG ];
 # then
-# echo "Brew install Amazon Music"
+# echo "Brew install Spotify"
 # brew cask install $PKG.rb
 # fi
 
