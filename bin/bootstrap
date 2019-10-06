@@ -595,28 +595,28 @@ echo "colorscheme base16-spacemacs" >> ~/.vimrc
 touch .installed-$PKG
 fi
 
-PKG=emacs-plus
-if [ ! -d /usr/local/Cellar/$PKG ];
-then
-echo "Brew install Emacs Plus"
-brew tap d12frosted/$PKG
-brew install $PKG
-fi
-
-PKG=spacemacs
-if [ ! -f .installed-$PKG ];
-then
-echo "Install Spacemacs"
-git clone https://github.com/syl20bnr/$PKG ~/.emacs.d
-touch .installed-$PKG
-fi
-
-# PKG=visual-studio-code
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# PKG=emacs-plus
+# if [ ! -d /usr/local/Cellar/$PKG ];
 # then
-# echo "Brew install Visual Studio Code"
-# brew cask install $PKG
+# echo "Brew install Emacs Plus"
+# brew tap d12frosted/$PKG
+# brew install $PKG
 # fi
+
+# PKG=spacemacs
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Spacemacs"
+# git clone https://github.com/syl20bnr/$PKG ~/.emacs.d
+# touch .installed-$PKG
+# fi
+
+PKG=visual-studio-code
+if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+then
+echo "Brew install Visual Studio Code"
+brew cask install $PKG
+fi
 
 # PKG=visual-studio
 # if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
