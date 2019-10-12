@@ -310,13 +310,6 @@ fi
 # brew install avrdude
 # fi
 
-PKG=google-featured-photos
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew Install Google Featured Photos"
-brew cask install $PKG
-fi
-
 PKG=spectacle
 if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
 then
