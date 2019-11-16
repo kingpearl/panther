@@ -355,21 +355,21 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
-sudo apt install -y $PKG-ce $PKG-ce-cli containerd.io && touch .installed-$PKG
+sudo apt install -y $PKG-ce $PKG-ce-cli containerd.io && sudo usermod -aG docker $USER && touch .installed-$PKG
 fi
 
 PKG=virtualbox
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Virtualbox"
-sudo apt install -y virtualbox virtualbox-dkms virtualbox-guest-additions-iso && sudo usermod -a -G vboxusers $USER && touch .installed-$PKG
+sudo apt install -y virtualbox virtualbox-dkms virtualbox-guest-additions-iso && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
 fi
 
 # PKG=kvm
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install KVM"
-# sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && sudo usermod -a -G libvirt $USER && sudo usermod -a -G libvirt-qemu $USER && touch .installed-$PKG
+# sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && sudo usermod -aG libvirt $USER && sudo usermod -a -G libvirt-qemu $USER && touch .installed-$PKG
 # fi
 
 PKG=vagrant
