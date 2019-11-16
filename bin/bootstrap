@@ -436,7 +436,7 @@ fi
 PKG=visual-studio-code
 if [ ! -f .installed-$PKG ];
 then
-echo "Flatpak install Visual Studio Code
+echo "Flatpak install Visual Studio Code"
 flatpak install -y flathub com.visualstudio.code && touch .installed-$PKG
 fi
 
