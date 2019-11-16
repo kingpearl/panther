@@ -28,7 +28,7 @@ PKG=git
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Git"
-sudo apt -y install $PKG && touch .installed-$PKG
+sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
 # Set permissions
@@ -59,91 +59,91 @@ PKG=make-gcc-ssl
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Make & GCC & SSL"
-sudo apt -y install build-essential libssl-dev && touch .installed-$PKG
+sudo apt install -y build-essential libssl-dev && touch .installed-$PKG
 fi
 
 # PKG=exfat
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install exFat"
-# sudo apt -y install exfat-fuse exfat-utils && touch .installed-$PKG
+# sudo apt install -y exfat-fuse exfat-utils && touch .installed-$PKG
 # fi
 
 # PKG=unzip
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install unzip"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=openjdk-8-jdk
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenJDK"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 PKG=htop
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install htop"
-sudo apt -y install $PKG && touch .installed-$PKG
+sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
 # PKG=mutt
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install Mutt"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=lynx
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install Lynx"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=newsboat
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install Newsboat"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=openvpn
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenVPN"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=openconnct
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenConnect"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=stoken
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install stoken"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=aspell
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install Aspell"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=silversearcher-ag
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install The Silver Searcher"
-# sudo apt -y install $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
 # PKG=jsduck
@@ -164,7 +164,7 @@ PKG=git-flow
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Git Flow"
-sudo apt -y install $PKG && touch .installed-$PKG
+sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
 VER=v12.13.0
@@ -172,25 +172,25 @@ PKG=node-$VER-linux-x64
 if [ ! -f .installed-$PKG ];
 then
 echo "Install Node"
-mkdir -p node && curl -sL https://nodejs.org/dist/$VER/$PKG.tar.gz | tar -xz --strip 1 -C node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
+mkdir -p node && curl -sL https://nodejs.org/dist/$VER/$PKG.tar.gz |  node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
 fi
 
 # echo "Update NPM"
 npm install -g npm
 
-PKG=js-beautify
-if [ ! -f .installed-$PKG ];
-then
-echo "NPM install JS Beautify"
-npm install -g $PKG && touch .installed-$PKG
-fi
+# PKG=js-beautify
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install JS Beautify"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
 
-PKG=tern
-if [ ! -f .installed-$PKG ];
-then
-echo "NPM install Tern"
-npm install -g $PKG && touch .installed-$PKG
-fi
+# PKG=tern
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Tern"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
 
 # PKG=create-react-app
 # if [ ! -f .installed-$PKG ];
@@ -256,11 +256,18 @@ fi
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
+PKG=gnome-tweaks
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Gnome Tweaks"
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
+
 PKG=flatpak
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Flatpak"
-sudo apt -y install $PKG && touch .installed-$PKG
+sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
 fi
 
 PKG=slack
@@ -270,7 +277,7 @@ echo "Flatpak install Slack"
 flatpak install -y flathub com.slack.Slack && touch .installed-$PKG
 fi
 
-# PKG=com.github.IsmaelMartinez.teams_for_linux
+# PKG=microsoft-teams
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Flatpak install Microsoft Teams"
@@ -281,7 +288,7 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Flatpak install Zoom"
-# flatpak install flathub com.skype.Client && && touch .installed-$PKG
+# flatpak install -y flathub com.skype.Client && && touch .installed-$PKG
 # fi
 
 # PKG=zoom
@@ -328,7 +335,7 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 sudo apt update
-sudo apt -y install $PKG && touch .installed-$PKG
+sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
 # VER=v4.9.0
@@ -336,10 +343,10 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install Watchman"
-# sudo apt -y install autoconf automake && curl -sL https://github.com/facebook/$PKG/archive/$ver.tar.gz | tar -xz --strip 1 -C $PKG && cd $PKG && ./autogen.sh && ./configure && make && sudo make install && cd ../ && rm -fR $PKG && touch .installed-$PKG
+# sudo apt install -y autoconf automake && curl -sL https://github.com/facebook/$PKG/archive/$ver.tar.gz | tar -xz --strip 1 -C $PKG && cd $PKG && ./autogen.sh && ./configure && make && sudo make install && cd ../ && rm -fR $PKG && touch .installed-$PKG
 # fi
 
-PKG=docker-ce
+PKG=docker
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Docker"
@@ -348,7 +355,7 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
-sudo apt install -y $PKG && touch .installed-$PKG
+sudo apt install -y $PKG-ce $PKG-ce-cli containerd.io && touch .installed-$PKG
 fi
 
 PKG=virtualbox
@@ -376,7 +383,7 @@ PKG=terraform
 if [ ! -d /usr/local/Cellar/$PKG ];
 then
 echo "Install Terraform"
-curl -sL https://releases.hashicorp.com/terraform/0.12.15/terraform_0.12.15_linux_amd64.zip | tar -x -C ./  && cp terraform /usr/local/bin/ && touch .installed-$PKG
+curl -sL https://releases.hashicorp.com/terraform/0.12.15/terraform_0.12.15_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
 fi
 
 # PKG=up
@@ -391,8 +398,15 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Flatpak install Android Studio"
-# flatpak install flathub com.google.AndroidStudio && touch .installed-$PKG
+# flatpak install -y flathub com.google.AndroidStudio && touch .installed-$PKG
 # fi
+
+PKG=vim
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Vim"
+sudo apt install -y vim && touch .installed-$PKG
+fi
 
 PKG=vundle
 if [ ! -f .installed-$PKG ];
@@ -408,7 +422,7 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install Emacs"
-# sudo apt -y install $PKG
+# sudo apt install -y $PKG
 # fi
 
 # PKG=spacemacs
@@ -419,23 +433,30 @@ fi
 # touch .installed-$PKG
 # fi
 
-# PKG=visual-studio-code
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Flatpak install Visual Studio Code
-# flatpak install flathub com.visualstudio.code && touch .installed-$PKG
-# fi
+PKG=visual-studio-code
+if [ ! -f .installed-$PKG ];
+then
+echo "Flatpak install Visual Studio Code
+flatpak install -y flathub com.visualstudio.code && touch .installed-$PKG
+fi
 
 # PKG=postman
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Flatpak install Postman"
-# flatpak install flathub com.getpostman.Postman && touch .installed-$PKG
+# flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
 # fi
 
 # PKG=sencha
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Install Sencha CMD"
-# curl -sL http://cdn.sencha.com/cmd/7.0.0.40/no-jre/SenchaCmd-7.0.0.40-linux-amd64.sh.zip | tar -x -C ./  && ./SenchaCmd-7.0.0.40-linux-amd64.sh && rm ./SenchaCmd-7.0.0.40-linux-amd64.sh && touch .installed-$PKG
+# curl -sL http://cdn.sencha.com/cmd/7.0.0.40/no-jre/SenchaCmd-7.0.0.40-linux-amd64.sh.zip | bsdtar -xf - -C ./  && ./SenchaCmd-7.0.0.40-linux-amd64.sh && rm ./SenchaCmd-7.0.0.40-linux-amd64.sh && touch .installed-$PKG
+# fi
+
+# PKG=zsh
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Zsh"
+# sudo apt install -y $PKG && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && touch .installed-$PKG
 # fi
