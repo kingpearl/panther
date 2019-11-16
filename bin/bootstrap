@@ -380,7 +380,7 @@ sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
 PKG=terraform
-if [ ! -d /usr/local/Cellar/$PKG ];
+if [ ! -f .installed-$PKG ];
 then
 echo "Install Terraform"
 curl -sL https://releases.hashicorp.com/terraform/0.12.15/terraform_0.12.15_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
