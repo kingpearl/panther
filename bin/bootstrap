@@ -3,14 +3,32 @@
 # Pearl Bootstrap
 # Copyright(c) 2012 King Pearl LLC
 ##
-mkdir -p /var/tmp && cd /var/tmp
+mkdir -p /var/tmp && cd /var/tmp/
 
-# Set preferences
-PKG=preferences
+ME=$(whoami)
+PKG=profile
 if [ ! -f .installed-$PKG ];
 then
-echo "Set preferences"
-touch .installed-$PKG && ~/.macOS
+sudo locale-gen en_US.UTF-8
+touch .installed-$PKG
+fi
+
+# Set preferences
+# PKG=preferences
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Set preferences"
+# ~/.macOS && touch .installed-$PKG
+# fi
+
+echo "Apt update"
+sudo apt update
+
+PKG=git
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Git"
+sudo apt -y install $PKG && touch .installed-$PKG
 fi
 
 # Set permissions
@@ -18,6 +36,8 @@ PKG=permissions
 if [ ! -f .installed-$PKG ];
 then
 echo "Set $PKG"
+sudo chmod g+rwx /usr/local/{.,bin,etc,include,lib,sbin,share,src,share/man}
+sudo chgrp $ME /usr/local/{.,bin,etc,include,lib,sbin,share,src,share/man}
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 touch .installed-$PKG
@@ -29,182 +49,130 @@ if [ ! -f .installed-$PKG ];
 then
 echo "Create $PKG"
 mkdir -p ~/.vim/{backups,bundle,swaps,undo}
-mkdir -p ~/{Machines,Projects}
 touch .installed-$PKG
 fi
 
-# Packages
+echo "Apt upgrade"
+sudo apt -y upgrade
 
-PKG=command_line_tools_for_os_x_for_xcode
+PKG=make-gcc-ssl
 if [ ! -f .installed-$PKG ];
 then
-echo "Install Command Line Tools"
-xcode-select --install && touch .installed-$PKG
+echo "Apt install Make & GCC & SSL"
+sudo apt -y install build-essential libssl-dev && touch .installed-$PKG
 fi
 
-PKG=homebrew
-if [ ! -f .installed-$PKG ];
-then
-echo "Install Homebrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && touch .installed-$PKG
-fi
-
-PKG=cask
-if [ ! -f .installed-$PKG ];
-then
-echo "Brew tap Cask"
-brew tap caskroom/$PKG && touch .installed-$PKG
-fi
-
-PKG=drivers
-if [ ! -f .installed-$PKG ];
-then
-echo "Brew tap Drivers"
-brew tap caskroom/$PKG && touch .installed-$PKG
-fi
-
-PKG=versions
-if [ ! -f .installed-$PKG ];
-then
-echo "Brew tap Versions"
-brew tap caskroom/$PKG && touch .installed-$PKG
-fi
-
-echo "Apple Software Update"
-sudo softwareupdate -i -a
-
-# PKG=fonts
+# PKG=exfat
 # if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew tap Fonts"
-# brew tap caskroom/$PKG && touch .installed-$PKG
+# echo "Apt install exFat"
+# sudo apt -y install exfat-fuse exfat-utils && touch .installed-$PKG
 # fi
 
-# PKG=bose-updater
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Bose Updater"
-# brew cask install $PKG
-# fi
-
-# PKG=razer-synapse
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Razer Synapse"
-# brew cask install $PKG
-# fi
-
-# PKG=zsa-wally
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Wally"
-# brew cask install $PKG
-# fi
-
-
-# PKG=sf-mono-font
+# PKG=unzip
 # if [ ! -f .installed-$PKG ];
 # then
-# echo "Install SF Mono Font"
-# open /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/ && touch .installed-$PKG
+# echo "Apt install unzip"
+# sudo apt -y install $PKG && touch .installed-$PKG
 # fi
 
-# pkg=p7zip
-# if [ ! -d /usr/local/cellar/$pkg ];
+# PKG=openjdk-8-jdk
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "brew install 7z"
-# brew install $pkg
+# echo "Apt install OpenJDK"
+# sudo apt -y install $PKG && touch .installed-$PKG
 # fi
 
-pkg=htop
-if [ ! -d /usr/local/cellar/$pkg ];
+PKG=htop
+if [ ! -f .installed-$PKG ];
 then
-echo "brew install htop"
-brew install $pkg
+echo "Apt install htop"
+sudo apt -y install $PKG && touch .installed-$PKG
 fi
 
-pkg=mutt
-if [ ! -d /usr/local/cellar/$pkg ];
-then
-echo "brew install Mutt"
-brew install $pkg
-fi
-
-pkg=lynx
-if [ ! -d /usr/local/cellar/$pkg ];
-then
-echo "brew install Lynx"
-brew install $pkg
-fi
-
-pkg=newsboat
-if [ ! -d /usr/local/cellar/$pkg ];
-then
-echo "brew install Newsboat"
-brew install $pkg
-fi
-
-# pkg=openvpn
-# if [ ! -d /usr/local/cellar/$pkg ];
+# PKG=mutt
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "brew install OpenVPN"
-# brew install $pkg
+# echo "Apt install Mutt"
+# sudo apt -y install $PKG && touch .installed-$PKG
 # fi
 
-# pkg=openconnect
-# if [ ! -d /usr/local/cellar/$pkg ];
+# PKG=lynx
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "brew install OpenConnect"
-# brew install $pkg
+# echo "Apt install Lynx"
+# sudo apt -y install $PKG && touch .installed-$PKG
 # fi
 
-# pkg=stoken
-# if [ ! -d /usr/local/cellar/$pkg ];
+# PKG=newsboat
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "brew install stoken"
-# brew install $pkg
+# echo "Apt install Newsboat"
+# sudo apt -y install $PKG && touch .installed-$PKG
 # fi
 
-PKG=aspell
-if [ ! -d /usr/local/Cellar/$PKG ];
-then
-echo "Brew install Aspell"
-brew install $PKG
-fi
+# PKG=openvpn
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install OpenVPN"
+# sudo apt -y install $PKG && touch .installed-$PKG
+# fi
 
-PKG=the_silver_searcher
-if [ ! -d /usr/local/Cellar/$PKG ];
-then
-echo "Brew install The Silver Searcher"
-brew install $PKG
-fi
+# PKG=openconnct
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install OpenConnect"
+# sudo apt -y install $PKG && touch .installed-$PKG
+# fi
+
+# PKG=stoken
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install stoken"
+# sudo apt -y install $PKG && touch .installed-$PKG
+# fi
+
+# PKG=aspell
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Aspell"
+# sudo apt -y install $PKG && touch .installed-$PKG
+# fi
+
+# PKG=silversearcher-ag
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install The Silver Searcher"
+# sudo apt -y install $PKG && touch .installed-$PKG
+# fi
+
+# PKG=jsduck
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Gem install JsDuck"
+# sudo gem install $PKG && touch .installed-$PKG
+# fi
 
 # PKG=git-extras
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Git Extras"
-# brew install $PKG
+# echo "Install $PKG"
+# mkdir -p $PKG && curl -sL https://github.com/visionmedia/$PKG/archive/master.tar.gz | tar -xz --strip 1 -C $PKG && cd $PKG && make install && cd ../ && rm -fR $PKG && touch .installed-$PKG
 # fi
 
 PKG=git-flow
-if [ ! -d /usr/local/Cellar/$PKG ];
+if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Git Flow"
-brew install $PKG
+echo "Apt install Git Flow"
+sudo apt -y install $PKG && touch .installed-$PKG
 fi
 
-# PKG=java
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Java"
-# brew cask install $PKG
-# fi
-
-PKG=node
-if [ ! -d /usr/local/Cellar/$PKG ];
+VER=v12.13.0
+PKG=node-$VER-linux-x64
+if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Node"
-brew install $PKG
+echo "Install Node"
+mkdir -p node && curl -sL https://nodejs.org/dist/$VER/$PKG.tar.gz |  node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
 fi
 
 # echo "Update NPM"
@@ -288,273 +256,127 @@ fi
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
-# PKG=osx-cross_avr
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Brew tap AVR"
-# brew tap osx-cross/avr && touch .installed-$PKG
-# fi
-# PKG=PX4_homebrew-px4
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Brew tap PX4"
-# brew tap PX4/homebrew-px4 && touch .installed-$PKG
-# fi
-# PKG=dfu-programmer
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Brew Install DFU Programmer"
-# brew install avr-gcc
-# brew install $PKG
-# brew install gcc-arm-none-eabi
-# brew install avrdude
-# fi
-
-PKG=spectacle
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+PKG=flatpak
+if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Spectacle"
-brew cask install $PKG
-fi
-
-PKG=1password
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew install 1Password"
-brew cask install $PKG
+echo "Apt install Flatpak"
+sudo apt -y install $PKG && touch .installed-$PKG
 fi
 
 PKG=slack
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Slack"
-brew cask install $PKG
+echo "Flatpak install Slack"
+flatpak install -y flathub com.slack.Slack && touch .installed-$PKG
 fi
 
-# PKG=microsoft-teams
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# PKG=com.github.IsmaelMartinez.teams_for_linux
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Microsoft Teams"
-# brew cask install $PKG
+# echo "Flatpak install Microsoft Teams"
+# flatpak install -y flathub com.github.IsmaelMartinez.teams_for_linux && touch .installed-$PKG
 # fi
 
 # PKG=skype
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Skype"
-# brew cask install $PKG
+# echo "Flatpak install Zoom"
+# flatpak install flathub com.skype.Client && && touch .installed-$PKG
 # fi
 
-# PKG=zoomus
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# PKG=zoom
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Zoom"
-# brew cask install $PKG
-# fi
-
-# PKG=transmit
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew Install Transmit"
-# brew cask install $PKG
-# fi
-
-# PKG=unison
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew Install Unison"
-# brew cask install $PKG
-# fi
-
-# PKG=battle-net
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Battle.net"
-# brew cask install $PKG
+# echo "Flatpak install Zoom"
+# flatpak install -y flathub us.zoom.Zoom && && touch .installed-$PKG
 # fi
 
 # PKG=steam
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Steam"
-# brew cask install $PKG
+# echo "Flatpak install Steam"
+# flatpak install -y flatpak install com.valvesoftware.Steam && touch .installed-$PKG
 # fi
 
-# PKG=openemu
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# PKG=gimp
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install OpenEmu"
-# brew cask install $PKG
+# echo "Flatpak install Gimp"
+# flatpak install -y flatpak install flathub org.gimp.GIMP && touch .installed-$PKG
 # fi
 
-# PKG=apple-configurator
+# PKG=darktable
 # if [ ! -f .installed-$PKG ];
 # then
-# echo "Install Apple Configurator" && touch .installed-$PKG
-# fi
-# PKG=apple-remote-desktop
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Apple Remote Desktop" && touch .installed-$PKG
-# fi
-# PKG=apple-iworks
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Apple iWorks" && touch .installed-$PKG
-# fi
-# PKG=apple-ibooks-author
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Apple iBooks Author" && touch .installed-$PKG
-# fi
-# fi
-# PKG=linkinus
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Linkinus" && touch .installed-$PKG
-# fi
-# PKG=writer-pro
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Writer Pro" && touch .installed-$PKG
-# fi
-# PKG=pocket
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Pocket" && touch .installed-$PKG
-# fi
-# PKG=twitter
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Twitter" && touch .installed-$PKG
-# fi
-# open -a /Applications/App\ Store.app && touch .installed-$PKG
-# PKG=affinity-photo
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Affinity Photo" && touch .installed-$PKG
-# fi
-# PKG=affinity-designer
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Affinity Designer" && touch .installed-$PKG
-# fi
-
-# PKG=omnigraffle
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew Install Omni Graffle"
-# brew cask install $PKG
-# fi
-
-# PKG=pixlr
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew Install Pixlr"
-# brew cask install $PKG
-# fi
-
-# PKG=sketch
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew Install Sketch"
-# brew cask install $PKG
-# fi
-
-# PKG=sketchbook
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Brew install SketchBook"
-# brew cask install $PKG
-# fi
-
-# PKG=microsoft-office
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Microsoft Office"
-# brew cask install $PKG
-# fi
-
-# PKG=adobe-dng-converter
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Adobe DNG Converter"
-# brew cask install $PKG
+# echo "Flatpak install Slack"
+# flatpak install -y flathub org.darktable.Darktable && touch .installed-$PKG
 # fi
 
 # PKG=spotify
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Spotify"
-# brew cask install $PKG.rb
+# echo "Flatpak install Spotify"
+# flatpak install -y flathub com.spotify.Client && touch .installed-$PKG
 # fi
 
-# PKG=firefox
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Firefox"
-# brew cask install $PKG
-# fi
-# PKG=firefoxdeveloperedition
-# if [ ! -d /usr/local/Cellar/$PKG ];
-# then
-# echo "Brew install Firefox Developer Edition"
-# brew cask install $PKG
-# fi
-
-PKG=google-chrome
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+PKG=google-chrome-stable
+if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Google Chrome"
-brew cask install $PKG
+echo "Apt install Google Chrome"
+sudo apt update
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+sudo apt update
+sudo apt -y install $PKG && touch .installed-$PKG
 fi
-# PKG=google-chrome-canary
-# if [ ! -d /usr/local/Cellar/$PKG ];
-# then
-# echo "Brew install Google Chrome Canary"
-# brew cask install $PKG
-# fi
 
+# VER=v4.9.0
 # PKG=watchman
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Watchman"
-# brew install $PKG
+# echo "Apt install Watchman"
+# sudo apt -y install autoconf automake && curl -sL https://github.com/facebook/$PKG/archive/$ver.tar.gz | tar -xz --strip 1 -C $PKG && cd $PKG && ./autogen.sh && ./configure && make && sudo make install && cd ../ && rm -fR $PKG && touch .installed-$PKG
 # fi
 
-PKG=docker
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+PKG=docker-ce
+if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Docker"
-brew cask install $PKG
+echo "Apt install Docker"
+sudo apt update
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-# PKG=virtualbox
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+PKG=virtualbox
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Virtualbox"
+sudo apt install -y virtualbox virtualbox-dkms virtualbox-guest-additions-iso && sudo usermod -a -G vboxusers $USER && touch .installed-$PKG
+fi
+
+# PKG=kvm
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Virtualbox"
-# brew cask install $PKG
+# echo "Apt install KVM"
+# sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && sudo usermod -a -G libvirt $USER && sudo usermod -a -G libvirt-qemu $USER && touch .installed-$PKG
 # fi
 
-# PKG=virtualbox-extension-pack
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Virtualbox Extension Pack"
-# brew cask install $PKG
-# fi
-
-# PKG=vagrant
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Vagrant"
-# brew cask install $PKG
-# fi
+PKG=vagrant
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Vagrant"
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
 
 PKG=terraform
 if [ ! -d /usr/local/Cellar/$PKG ];
 then
-echo "Brew install Terraform"
-brew install $PKG
+echo "Install Terraform"
+curl -sL https://releases.hashicorp.com/terraform/0.12.15/terraform_0.12.15_linux_amd64.zip | tar -x -C ./  && cp terraform /usr/local/bin/ && touch .installed-$PKG
 fi
 
 # PKG=up
@@ -565,35 +387,28 @@ fi
 # touch .installed-$PKG
 # fi
 
-# PKG=xcode
-# if [ ! -d /usr/local/Cellar/$PKG ];
-# then
-# echo "Install Xcode" && touch .installed-$PKG
-# fi
-
 # PKG=android-studio
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Android Studio"
-# brew cask install $PKG
+# echo "Flatpak install Android Studio"
+# flatpak install flathub com.google.AndroidStudio && touch .installed-$PKG
 # fi
 
 PKG=vundle
 if [ ! -f .installed-$PKG ];
 then
-echo "Brew install Vundle"
+echo "Install Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 echo "colorscheme base16-spacemacs" >> ~/.vimrc
 touch .installed-$PKG
 fi
 
-# PKG=emacs-plus
-# if [ ! -d /usr/local/Cellar/$PKG ];
+# PKG=emacs
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Emacs Plus"
-# brew tap d12frosted/$PKG
-# brew install $PKG
+# echo "Apt install Emacs"
+# sudo apt -y install $PKG
 # fi
 
 # PKG=spacemacs
@@ -604,73 +419,23 @@ fi
 # touch .installed-$PKG
 # fi
 
-PKG=visual-studio-code
-if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-then
-echo "Brew install Visual Studio Code"
-brew cask install $PKG
-fi
-
-# PKG=visual-studio
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# PKG=visual-studio-code
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Visual Studio"
-# brew cask install $PKG
+# echo "Flatpak install Visual Studio Code
+# flatpak install flathub com.visualstudio.code && touch .installed-$PKG
 # fi
-
-# PKG=xamarin-ios
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Xamarin iOS"
-# brew cask install $PKG
-# fi
-
-# PKG=xamarin-android
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Xamarin Android"
-# brew cask install $PKG
-# fi
-
 
 # PKG=postman
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Postman"
-# brew cask install $PKG
+# echo "Flatpak install Postman"
+# flatpak install flathub com.getpostman.Postman && touch .installed-$PKG
 # fi
 
 # PKG=sencha
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
+# if [ ! -f .installed-$PKG ];
 # then
-# echo "Brew install Sencha CMD"
-# brew cask install $PKG
-# fi
-
-# PKG=fork
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Fork"
-# brew cask install $PKG
-# fi
-
-# PKG=mongodb-compass
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install MongoDB Compass"
-# brew cask install $PKG
-# fi
-
-# PKG=medis
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install Medis"
-# brew cask install $PKG
-# fi
-
-# PKG=datagrip
-# if [ ! -d /usr/local/Homebrew/Caskroom/$PKG ];
-# then
-# echo "Brew install DataGrip"
-# brew cask install $PKG
+# echo "Install Sencha CMD"
+# curl -sL http://cdn.sencha.com/cmd/7.0.0.40/no-jre/SenchaCmd-7.0.0.40-linux-amd64.sh.zip | tar -x -C ./  && ./SenchaCmd-7.0.0.40-linux-amd64.sh && rm ./SenchaCmd-7.0.0.40-linux-amd64.sh && touch .installed-$PKG
 # fi
