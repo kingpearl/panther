@@ -172,7 +172,7 @@ PKG=node-$VER-linux-x64
 if [ ! -f .installed-$PKG ];
 then
 echo "Install Node"
-mkdir -p node && curl -sL https://nodejs.org/dist/$VER/$PKG.tar.gz |  node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
+mkdir -p node && curl -sL https://nodejs.org/dist/$VER/$PKG.tar.gz | tar -xz --strip 1 -C node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
 fi
 
 # echo "Update NPM"
