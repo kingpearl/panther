@@ -119,7 +119,7 @@ fi
 # sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
-# PKG=openconnct
+# PKG=openconnect
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenConnect"
