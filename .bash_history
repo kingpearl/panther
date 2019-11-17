@@ -12,6 +12,7 @@ sudo apt update
 sudo apt upgrade -y && sudo apt dist-upgrade -y
 sudo apt autoremove -y
 sudo kernelstub -a mem_sleep_default=deep
+sudo dpkg-reconfigure resolvconf
 docker build -t kingpearl/cougar:0.9.41 .
 docker push kingpearl/cougar:0.9.41
 docker run -p 3000:3000 -itv ~/:/docker kingpearl/cougar:0.9.41 bash
