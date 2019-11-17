@@ -69,12 +69,12 @@ fi
 # sudo apt install -y exfat-fuse exfat-utils && touch .installed-$PKG
 # fi
 
-# PKG=unzip
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install unzip"
-# sudo apt install -y $PKG && touch .installed-$PKG
-# fi
+PKG=libarchive-tools
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Tar"
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
 
 # PKG=openjdk-8-jdk
 # if [ ! -f .installed-$PKG ];
@@ -83,12 +83,12 @@ fi
 # sudo apt install -y $PKG && touch .installed-$PKG
 # fi
 
-PKG=htop
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install htop"
-sudo apt install -y $PKG && touch .installed-$PKG
-fi
+# PKG=htop
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Htop"
+# sudo apt install -y $PKG && touch .installed-$PKG
+# fi
 
 # PKG=mutt
 # if [ ! -f .installed-$PKG ];
@@ -144,13 +144,6 @@ fi
 # then
 # echo "Apt install The Silver Searcher"
 # sudo apt install -y $PKG && touch .installed-$PKG
-# fi
-
-# PKG=jsduck
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Gem install JsDuck"
-# sudo gem install $PKG && touch .installed-$PKG
 # fi
 
 # PKG=git-extras
