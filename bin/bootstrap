@@ -116,14 +116,14 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenVPN"
-# sudo apt install -y $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG network-manager-$PKG network-manager-openconnect-gnome && touch .installed-$PKG
 # fi
 
 # PKG=openconnect
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenConnect"
-# sudo apt install -y $PKG && touch .installed-$PKG
+# sudo apt install -y $PKG network-manager-$PKG  network-manager-openconnect-gnome && touch .installed-$PKG
 # fi
 
 # PKG=stoken
