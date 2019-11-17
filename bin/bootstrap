@@ -54,7 +54,7 @@ touch .installed-$PKG
 fi
 
 echo "Apt upgrade"
-sudo apt -y upgrade
+sudo apt upgrade -y
 
 PKG=make-gcc-ssl
 if [ ! -f .installed-$PKG ];
