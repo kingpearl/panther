@@ -281,7 +281,7 @@ fi
 # PKG=skype
 # if [ ! -f .installed-$PKG ];
 # then
-# echo "Flatpak install Zoom"
+# echo "Flatpak install Skype"
 # flatpak install -y flathub com.skype.Client && touch .installed-$PKG
 # fi
 
