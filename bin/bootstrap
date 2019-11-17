@@ -49,6 +49,7 @@ if [ ! -f .installed-$PKG ];
 then
 echo "Create $PKG"
 mkdir -p ~/.vim/{backups,bundle,swaps,undo}
+mkdir -p ~/Projects
 touch .installed-$PKG
 fi
 
