@@ -271,6 +271,15 @@ echo "Flatpak install Slack"
 flatpak install -y flathub com.slack.Slack && touch .installed-$PKG
 fi
 
+PKG=evolution
+if [ ! -f .installed-$PKG ];
+then
+echo "Flatpak install Evolution"
+flatpak install -y flathub org.gnome.Evolution && touch .installed-$PKG
+fi
+
+
+
 # PKG=microsoft-teams
 # if [ ! -f .installed-$PKG ];
 # then
