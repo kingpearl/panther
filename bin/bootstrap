@@ -365,7 +365,7 @@ PKG=virtualbox
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Virtualbox"
-sudo apt install -y virtualbox virtualbox-dkms virtualbox-guest-additions-iso && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
+sudo apt install -y virtualbox virtualbox-dkms virtualbox-guest-additions-iso virtualbox-ext-pack && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
 fi
 
 # PKG=kvm
