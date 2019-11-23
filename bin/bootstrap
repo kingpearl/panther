@@ -278,8 +278,6 @@ echo "Flatpak install Evolution"
 flatpak install -y flathub org.gnome.Evolution && touch .installed-$PKG
 fi
 
-
-
 # PKG=microsoft-teams
 # if [ ! -f .installed-$PKG ];
 # then
