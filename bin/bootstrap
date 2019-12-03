@@ -406,7 +406,7 @@ PKG=vim
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Vim"
-sudo apt install -y vim && touch .installed-$PKG
+sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
 PKG=vundle
