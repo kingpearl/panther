@@ -24,6 +24,13 @@ fi
 echo "Apt update"
 sudo apt update
 
+PKG=curl
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Curl"
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
+
 PKG=git
 if [ ! -f .installed-$PKG ];
 then
