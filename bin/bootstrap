@@ -429,8 +429,8 @@ fi
 # PKG=emacs
 # if [ ! -f .installed-$PKG ];
 # then
-# echo "Apt install Emacs"
-# sudo apt install -y $PKG
+# echo "Flatpak install Emacs"
+# flatpak install -y flathub org.gnu.emacs && touch .installed-$PKG
 # fi
 
 # PKG=spacemacs
