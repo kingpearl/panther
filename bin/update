@@ -5,12 +5,20 @@
 ##
 mkdir -p /var/tmp && cd /var/tmp
 
-echo "Apple Software Update"
-sudo softwareupdate -i -a
+echo "Apt update"
+sudo apt update
 
-echo "Brew update"
-brew update 
-brew upgrade
+echo "Apt upgrade"
+sudo apt upgrade -y
+
+echo "Apt dist upgrade"	
+sudo apt dist-upgrade -y
+
+# echo "Apt auto remove"
+sudo apt autoremove -y
+
+echo "Flatpak update"
+flatpak update -y
 
 echo "Update NPM"
 npm install -g npm && npm update -g
