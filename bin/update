@@ -22,3 +22,6 @@ flatpak update -y
 
 echo "Update NPM"
 npm install -g npm && npm update -g
+
+echo "Vundle install/update"
+vim +BundleInstall! +qall
