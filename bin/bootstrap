@@ -24,6 +24,9 @@ fi
 echo "Apt update"
 sudo apt update
 
+echo "Apt add universe"
+sudo add-apt-repository universe
+
 PKG=curl
 if [ ! -f .installed-$PKG ];
 then
