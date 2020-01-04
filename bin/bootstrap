@@ -126,14 +126,14 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Apt install OpenVPN"
-# sudo apt install -y $PKG network-manager-$PKG network-manager-openconnect-gnome && touch .installed-$PKG
+# sudo apt install -y $PKG network-manager-$PKG network-manager-openvpn-gnome && touch .installed-$PKG
 # fi
 
 PKG=openconnect
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install OpenConnect"
-sudo apt install -y $PKG network-manager-$PKG  network-manager-openconnect-gnome && touch .installed-$PKG
+sudo apt install -y $PKG network-manager-$PKG network-manager-openconnect-gnome && touch .installed-$PKG
 fi
 
 # PKG=stoken
@@ -292,7 +292,7 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Flatpak install Microsoft Teams"
-# flatpak install -y flathub com.github.IsmaelMartinez.teams_for_linux && touch .installed-$PKG
+# flatpak install -y flathub com.microsoft.Teams && touch .installed-$PKG
 # fi
 
 # PKG=skype
