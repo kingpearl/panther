@@ -8,6 +8,7 @@ rmdir .git && g init && g ca && g remote add origin gh:kingpearl/panther.git && 
 vagrant up && vagrant ssh
 caffeinate -t 14400
 date '+%s'
+~
 sudo apt update
 sudo apt upgrade -y && sudo apt dist-upgrade -y
 sudo apt autoremove -y
