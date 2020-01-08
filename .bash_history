@@ -8,7 +8,7 @@ rmdir .git && g init && g ca && g remote add origin gh:kingpearl/panther.git && 
 vagrant up && vagrant ssh
 caffeinate -t 14400
 date '+%s'
-sudo kernelstub -a rcutree.rcu_idle_gp_delay=1
+sudo kernelstub -a modprobe.blacklist=nouveau
 sudo kernelstub -a mem_sleep_default=deep
 sudo apt update
 sudo apt upgrade -y && sudo apt dist-upgrade -y
