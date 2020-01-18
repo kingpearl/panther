@@ -477,12 +477,3 @@ fi
 # echo "Apt install Zsh"
 # sudo apt install -y $PKG && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && touch .installed-$PKG
 # fi
-
-PKG=regolith-desktop
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install Regolith"
-sudo add-apt-repository -y ppa:kgilmer/regolith-stable
-sudo apt update
-sudo apt install -y $PKG && touch .installed-$PKG
-fi
