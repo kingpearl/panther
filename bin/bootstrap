@@ -24,8 +24,24 @@ fi
 echo "Apt update"
 sudo apt update
 
+PKG=universe
+if [ ! -f .installed-$PKG ];
+then
 echo "Add apt repository universe"
-sudo add-apt-repository universe
+sudo add-apt-repository $PKG && touch .installed-$PKG
+sudo apt update
+fi
+
+PKG=nvidia
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install NVIDIA drivers"
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt install -y nvidia-driver-440 libvulkan1
+sudo apt upgrade -y
+fi
+
 
 PKG=curl
 if [ ! -f .installed-$PKG ];
@@ -341,7 +357,6 @@ PKG=google-chrome-stable
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Google Chrome"
-sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
@@ -361,7 +376,6 @@ PKG=docker
 if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Docker"
-sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
