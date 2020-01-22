@@ -27,21 +27,10 @@ sudo apt update
 PKG=universe
 if [ ! -f .installed-$PKG ];
 then
-echo "Add apt repository universe"
+echo "Add apt repository Universe"
 sudo add-apt-repository $PKG && touch .installed-$PKG
 sudo apt update
 fi
-
-PKG=nvidia
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install NVIDIA drivers"
-sudo add-apt-repository -y ppa:graphics-drivers/ppa
-sudo apt update
-sudo apt install -y nvidia-driver-440 libvulkan1
-sudo apt upgrade -y
-fi
-
 
 PKG=curl
 if [ ! -f .installed-$PKG ];
@@ -81,6 +70,30 @@ fi
 
 echo "Apt upgrade"
 sudo apt upgrade -y
+
+pkg=xanmod
+if [ ! -f .installed-$pkg ];
+then
+echo "apt install XanMod"
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fssl https://dl.xanmod.org/gpg.key | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://deb.xanmod.org releases main"
+sudo apt update
+sudo apt install -y linux-$PKG intel-microcode iucode-tool iproute2 linux-firmware
+touch .installed-$PKG
+fi
+
+pkg=nvidia
+if [ ! -f .installed-$pkg ];
+then
+echo "apt install nvidia drivers"
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt install -y $PKG-driver-440 libvulkan1
+sudo apt upgrade -y
+touch .installed-$PKG
+fi
+
 
 PKG=make-gcc-ssl
 if [ ! -f .installed-$PKG ];
@@ -383,17 +396,17 @@ sudo apt update
 sudo apt install -y $PKG-ce $PKG-ce-cli containerd.io && sudo usermod -aG docker $USER && touch .installed-$PKG
 fi
 
-PKG=virtualbox
-if [ ! -f .installed-$PKG ];
+pkg=virtualbox
+if [ ! -f .installed-$pkg ];
 then
-echo "Apt install Virtualbox"
+echo "apt install virtualbox"
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add -
-curl -fsSL https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
+curl -fssl https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-key add -
+curl -fssl https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo apt update
-sudo apt install -y virtualbox-6.1 && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
-curl -sO https://download.virtualbox.org/virtualbox/6.1.2/Oracle_VM_VirtualBox_Extension_Pack-6.1.2.vbox-extpack
+sudo apt install -y virtualbox-6.1 && sudo usermod -ag vboxusers $user && touch .installed-$pkg
+curl -so https://download.virtualbox.org/virtualbox/6.1.2/oracle_vm_virtualbox_extension_pack-6.1.2.vbox-extpack
 fi
 
 # PKG=kvm
