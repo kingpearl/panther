@@ -78,8 +78,8 @@ fi
 echo "Apt upgrade"
 sudo apt upgrade -y
 
-pkg=xanmod
-if [ ! -f .installed-$pkg ];
+PKG=xanmod
+if [ ! -f .installed-$PKG ];
 then
 echo "Apt install XanMod"
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
@@ -90,8 +90,8 @@ sudo apt install -y linux-$PKG intel-microcode iucode-tool iproute2 linux-firmwa
 touch .installed-$PKG
 fi
 
-pkg=mesa
-if [ ! -f .installed-$pkg ];
+PKG=mesa
+if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Mesa drivers"
 sudo apt update
@@ -100,8 +100,8 @@ sudo apt install -y libgl1-mesa-dri:i386 libgl1-mesa-glx:i386 mesa-vulkan-driver
 touch .installed-$PKG
 fi
 
-pkg=nvidia
-if [ ! -f .installed-$pkg ];
+PKG=nvidia
+if [ ! -f .installed-$PKG ];
 then
 echo "Apt install NVIDIA drivers"
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
@@ -431,8 +431,8 @@ sudo apt update
 sudo apt install -y $PKG-ce $PKG-ce-cli containerd.io && sudo usermod -aG docker $USER && touch .installed-$PKG
 fi
 
-pkg=virtualbox
-if [ ! -f .installed-$pkg ];
+PKG=virtualbox
+if [ ! -f .installed-$PKG ];
 then
 echo "apt install virtualbox"
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
@@ -440,7 +440,7 @@ curl -fssl https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-k
 curl -fssl https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo apt update
-sudo apt install -y virtualbox-6.1 && sudo usermod -ag vboxusers $user && touch .installed-$pkg
+sudo apt install -y virtualbox-6.1 && sudo usermod -ag vboxusers $user && touch .installed-$PKG
 curl -so https://download.virtualbox.org/virtualbox/6.1.2/oracle_vm_virtualbox_extension_pack-6.1.2.vbox-extpack
 fi
 
