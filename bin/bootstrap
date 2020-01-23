@@ -388,8 +388,8 @@ fi
 PKG=steam
 if [ ! -f .installed-$PKG ];
 then
-echo "Flatpak install Steam"
-flatpak install -y flathub com.valvesoftware.Steam && touch .installed-$PKG
+echo "Apt install Steam"
+sudo apt install -y $PKG-devices $PKG-installer && touch .installed-$PKG
 fi
 
 # PKG=lutris
