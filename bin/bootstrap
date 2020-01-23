@@ -440,7 +440,7 @@ curl -fssl https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-k
 curl -fssl https://www.virtualbox.org/download/oracle_vbox.asc | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo apt update
-sudo apt install -y virtualbox-6.1 && sudo usermod -ag vboxusers $USER && touch .installed-$PKG
+sudo apt install -y virtualbox-6.1 && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
 curl -sO https://download.virtualbox.org/virtualbox/6.1.2/Oracle_VM_VirtualBox_Extension_Pack-6.1.2.vbox-extpack
 fi
 
