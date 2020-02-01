@@ -78,17 +78,17 @@ fi
 echo "Apt upgrade"
 sudo apt upgrade -y
 
-# PKG=xanmod
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install XanMod"
-# sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-# curl -fssl https://dl.xanmod.org/gpg.key | sudo apt-key add -
-# sudo add-apt-repository "deb [arch=amd64] http://deb.xanmod.org releases main"
-# sudo apt update
-# sudo apt install -y linux-$PKG intel-microcode iucode-tool iproute2 linux-firmware
-# touch .installed-$PKG
-# fi
+PKG=xanmod
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install XanMod"
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fssl https://dl.xanmod.org/gpg.key | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://deb.xanmod.org releases main"
+sudo apt update
+sudo apt install -y linux-$PKG intel-microcode iucode-tool iproute2 linux-firmware
+touch .installed-$PKG
+fi
 
 PKG=mesa
 if [ ! -f .installed-$PKG ];
