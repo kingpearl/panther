@@ -11,8 +11,7 @@ date '+%s'
 sudo kernelstub -a modprobe.blacklist=nouveau
 sudo kernelstub -a mem_sleep_default=deep
 sudo apt update
-sudo apt upgrade -y && sudo apt dist-upgrade -y
-sudo apt autoremove -y
+sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
 flatpak update
 docker build -t kingpearl/cougar:0.9.41 .
 docker push kingpearl/cougar:0.9.41
