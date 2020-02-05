@@ -519,12 +519,12 @@ echo "Flatpak install Visual Studio Code"
 flatpak install -y flathub com.visualstudio.code && touch .installed-$PKG
 fi
 
-# PKG=postman
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Flatpak install Postman"
-# flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
-# fi
+PKG=postman
+if [ ! -f .installed-$PKG ];
+then
+echo "Flatpak install Postman"
+flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
+fi
 
 # PKG=sencha
 # if [ ! -f .installed-$PKG ];
