@@ -385,12 +385,12 @@ fi
 # flatpak install -y flathub com.spotify.Client && touch .installed-$PKG
 # fi
 
-PKG=steam
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install Steam"
-sudo apt install -y $PKG-devices $PKG-installer && touch .installed-$PKG
-fi
+# PKG=steam
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Steam"
+# sudo apt install -y $PKG-devices $PKG-installer && touch .installed-$PKG
+# fi
 
 # PKG=lutris
 # if [ ! -f .installed-$PKG ];
