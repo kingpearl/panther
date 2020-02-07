@@ -78,17 +78,17 @@ fi
 echo "Apt upgrade"
 sudo apt upgrade -y
 
-# PKG=xanmod
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install XanMod"
-# sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-# curl -fssl https://dl.xanmod.org/gpg.key | sudo apt-key add -
-# sudo add-apt-repository "deb [arch=amd64] http://deb.xanmod.org releases main"
-# sudo apt update
-# sudo apt install -y linux-$PKG intel-microcode iucode-tool iproute2 linux-firmware
-# touch .installed-$PKG
-# fi
+PKG=xanmod
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install XanMod"
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fssl https://dl.xanmod.org/gpg.key | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://deb.xanmod.org releases main"
+sudo apt update
+sudo apt install -y linux-$PKG intel-microcode iucode-tool iproute2 linux-firmware
+touch .installed-$PKG
+fi
 
 PKG=mesa
 if [ ! -f .installed-$PKG ];
@@ -315,6 +315,22 @@ npm install -g npm
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
+PKG=arc-theme
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Arc Theme"
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
+
+PKG=papirus-icon-theme
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Papirus Icon Theme"
+sudo add-apt-repository -y ppa:papirus/papirus
+sudo apt update
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
+
 PKG=gnome-tweaks
 if [ ! -f .installed-$PKG ];
 then
@@ -462,7 +478,7 @@ PKG=terraform
 if [ ! -f .installed-$PKG ];
 then
 echo "Install Terraform"
-curl -sL https://releases.hashicorp.com/terraform/0.12.15/terraform_0.12.15_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
+curl -sL https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_freebsd_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
 fi
 
 # PKG=up
