@@ -460,12 +460,12 @@ sudo apt install -y $PKG-6.1 && sudo usermod -aG vboxusers $USER && touch .insta
 curl -sO https://download.virtualbox.org/virtualbox/6.1.2/Oracle_VM_VirtualBox_Extension_Pack-6.1.2.vbox-extpack
 fi
 
-# PKG=kvm
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install KVM"
-# sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && sudo usermod -aG libvirt $USER && sudo usermod -a -G libvirt-qemu $USER && touch .installed-$PKG
-# fi
+PKG=kvm
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install KVM"
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && sudo usermod -aG libvirt $USER && sudo usermod -a -G libvirt-qemu $USER && touch .installed-$PKG
+fi
 
 PKG=vagrant
 if [ ! -f .installed-$PKG ];
