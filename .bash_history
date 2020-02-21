@@ -8,8 +8,8 @@ rmdir .git && g init && g ca && g remote add origin gh:kingpearl/panther.git && 
 vagrant up && vagrant ssh
 caffeinate -t 14400
 date '+%s'
-sudo kernelstub -a modprobe.blacklist=nouveau
-sudo kernelstub -a mem_sleep_default=deep
+echo GRUB_CMDLINE_LINUX="nouveau.blacklist=1 mem_sleep_default=deep"
+sudo vim /etc/default/grub && sudo update-grub
 sudo apt update
 sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
 flatpak update
@@ -17,4 +17,3 @@ docker build -t kingpearl/cougar:0.9.41 .
 docker push kingpearl/cougar:0.9.41
 docker run -p 3000:3000 -itv ~/:/docker kingpearl/cougar:0.9.41 bash
 docker rm $(docker ps -aqf status=exited)
-
