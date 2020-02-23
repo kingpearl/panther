@@ -442,7 +442,7 @@ then
 echo "Apt install Docker"
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
 sudo apt update
 sudo apt install -y $PKG-ce $PKG-ce-cli containerd.io && sudo usermod -aG docker $USER && touch .installed-$PKG
 fi
@@ -472,7 +472,7 @@ if [ ! -f .installed-$PKG ];
 then
 echo "Apt install Vagrant"
 sudo apt install -y $PKG && touch .installed-$PKG
-vagrant plugin install vagrant-kvm
+# vagrant plugin install vagrant-kvm
 fi
 
 PKG=terraform
