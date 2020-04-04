@@ -11,10 +11,10 @@ vagrant up && vagrant ssh
 caffeinate -t 14400
 date '+%s'
 echo GRUB_CMDLINE_LINUX="nouveau.blacklist=1 mem_sleep_default=deep"
+sudo vim /etc/default/grub && sudo update-grub
 sudo prime-select on-demand
 sudo vim /lib/udev/rules.d/61-gdm.rules
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-sudo vim /etc/default/grub && sudo update-grub
 sudo apt update
 sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
 flatpak update
