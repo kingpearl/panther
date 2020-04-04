@@ -359,12 +359,12 @@ echo "Flatpak install Evolution"
 flatpak install -y flathub org.gnome.Evolution && touch .installed-$PKG
 fi
 
-PKG=microsoft-teams
-if [ ! -f .installed-$PKG ];
-then
-echo "Flatpak install Microsoft Teams"
-flatpak install -y flathub com.microsoft.Teams && touch .installed-$PKG
-fi
+# PKG=microsoft-teams
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Flatpak install Microsoft Teams"
+# flatpak install -y flathub com.microsoft.Teams && touch .installed-$PKG
+# fi
 
 # PKG=skype
 # if [ ! -f .installed-$PKG ];
@@ -373,12 +373,12 @@ fi
 # flatpak install -y flathub com.skype.Client && touch .installed-$PKG
 # fi
 
-PKG=zoom
-if [ ! -f .installed-$PKG ];
-then
-echo "Flatpak install Zoom"
-flatpak install -y flathub us.zoom.Zoom && touch .installed-$PKG
-fi
+# PKG=zoom
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Flatpak install Zoom"
+# flatpak install -y flathub us.zoom.Zoom && touch .installed-$PKG
+# fi
 
 # PKG=gimp
 # if [ ! -f .installed-$PKG ];
