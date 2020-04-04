@@ -1,6 +1,8 @@
 sudo rm -f /private/var/vm/s* && sudo ditto -czX / /Volumes/siberian/Backups/panther.cpgz
 diskutil eraseVolume JHFS+ Macintosh\ HD /Volumes/Macintosh\ HD && ditto -x /Volumes/siberian/Backups/panther.cpgz /Volumes/Macintosh\ HD/
 umount /Volumes/siberian
+sudo dd if=/dev/sda conv=sync,noerror bs=64K | gzip -c > panther.img.gz
+gunzip -c panther.img.gz | sudo dd bs=64K of=/dev/sda
 tar -xz --strip 1 -f Downloads/cougar-master.tar.gz && tar -xz --strip 1 -f Downloads/panda-master.tar.gz && tar -xz --strip 1 -f Downloads/panther-master.tar.gz && rm Downloads/*.tar.gz
 sudo softwareupdate -i -a
 g c gh:kingpearl/panther.git
@@ -9,6 +11,9 @@ vagrant up && vagrant ssh
 caffeinate -t 14400
 date '+%s'
 echo GRUB_CMDLINE_LINUX="nouveau.blacklist=1 mem_sleep_default=deep"
+sudo prime-select on-demand
+sudo vim /lib/udev/rules.d/61-gdm.rules
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 sudo vim /etc/default/grub && sudo update-grub
 sudo apt update
 sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
