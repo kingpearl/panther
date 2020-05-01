@@ -338,12 +338,12 @@ echo "Apt install Gnome Tweaks"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-PKG=flatpak
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install Flatpak"
-sudo apt install -y $PKG && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
-fi
+# PKG=flatpak
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Flatpak"
+# sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
+# fi
 
 PKG=slack
 if [ ! -f .installed-$PKG ];
