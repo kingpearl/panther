@@ -449,7 +449,7 @@ fi
 # sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 # sudo apt update
 # sudo apt install -y $PKG-6.1 && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
-# curl -sO https://download.virtualbox.org/virtualbox/6.1.6/Oracle_VM_VirtualBox_Extension_Pack-6.1.6.vbox-extpack
+# curl -sO https://download.virtualbox.org/virtualbox/6.1.10/Oracle_VM_VirtualBox_Extension_Pack-6.1.10.vbox-extpack
 # fi
 
 PKG=kvm
