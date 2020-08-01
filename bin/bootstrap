@@ -471,7 +471,7 @@ PKG=terraform
 if [ ! -f .installed-$PKG ];
 then
 echo "Install Terraform"
-curl -sL https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
+curl -sL https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
 fi
 
 # PKG=up
