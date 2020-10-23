@@ -539,7 +539,7 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Install Sencha CMD"
-# curl -sL http://cdn.sencha.com/cmd/7.0.0.40/no-jre/SenchaCmd-7.0.0.40-linux-amd64.sh.zip | bsdtar -xf - -C ./  && ./SenchaCmd-7.0.0.40-linux-amd64.sh && rm ./SenchaCmd-7.0.0.40-linux-amd64.sh && touch .installed-$PKG
+# curl -sL http://cdn.sencha.com/cmd/7.3.0.19/no-jre/SenchaCmd-7.3.0.19-linux-amd64.sh.zip | bsdtar -xf - -C ./  && ./SenchaCmd-7.0.0.40-linux-amd64.sh && rm ./SenchaCmd-7.0.0.40-linux-amd64.sh && touch .installed-$PKG
 # fi
 
 # PKG=zsh
