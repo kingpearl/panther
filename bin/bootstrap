@@ -291,12 +291,12 @@ npm install -g npm
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
-# PKG=typescript
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "NPM install TypeScript"
-# npm install -g $PKG && touch .installed-$PKG
-# fi
+PKG=typescript
+if [ ! -f .installed-$PKG ];
+then
+echo "NPM install TypeScript"
+npm install -g $PKG && touch .installed-$PKG
+fi
 
 # PKG=particle-cli
 # if [ ! -f .installed-$PKG ];
@@ -328,12 +328,12 @@ echo "Apt install Gnome Tweaks"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-# PKG=flatpak
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install Flatpak"
-# sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
-# fi
+PKG=flatpak
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Flatpak"
+sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
+fi
 
 PKG=slack
 if [ ! -f .installed-$PKG ];
@@ -532,6 +532,13 @@ then
 echo "Flatpak install Postman"
 flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
 fi
+
+# PKG=pop-os-shell
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Pop!_OS Shell"
+# git clone https://github.com/pop-os/shell && cd shell && make local-install && cd ../ && rm -fr shell && touch .installed-$PKG
+# fi
 
 # PKG=sencha
 # if [ ! -f .installed-$PKG ];
