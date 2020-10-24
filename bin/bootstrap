@@ -99,7 +99,7 @@ sudo apt upgrade -y
 # echo "Apt install NVIDIA drivers"
 # sudo add-apt-repository -y ppa:graphics-drivers/ppa
 # sudo apt update
-# sudo apt install -y nvidia-driver-440 libnvidia-gl-440 libvulkan1
+# sudo apt install -y nvidia-driver-455 libnvidia-gl-455 libvulkan1
 # touch .installed-$PKG
 # fi
 
@@ -218,7 +218,7 @@ echo "Apt install Git Flow"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-VER=v12.18.4
+VER=v12.19.0
 PKG=node-$VER-linux-x64
 if [ ! -f .installed-$PKG ];
 then
