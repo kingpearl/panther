@@ -291,12 +291,12 @@ npm install -g npm
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
-PKG=typescript
-if [ ! -f .installed-$PKG ];
-then
-echo "NPM install TypeScript"
-npm install -g $PKG && touch .installed-$PKG
-fi
+# PKG=typescript
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install TypeScript"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
 
 # PKG=particle-cli
 # if [ ! -f .installed-$PKG ];
@@ -318,6 +318,13 @@ then
 echo "Apt install Papirus Icon Theme"
 sudo add-apt-repository -y ppa:papirus/papirus
 sudo apt update
+sudo apt install -y $PKG && touch .installed-$PKG
+fi
+
+PKG=gnome-shell-extensions
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Gnome Shell Extensions"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
