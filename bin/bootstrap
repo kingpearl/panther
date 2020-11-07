@@ -335,12 +335,12 @@ echo "Apt install Gnome Tweaks"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-PKG=flatpak
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install Flatpak"
-sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
-fi
+# PKG=flatpak
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Flatpak"
+# sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
+# fi
 
 PKG=slack
 if [ ! -f .installed-$PKG ];
@@ -540,19 +540,11 @@ echo "Flatpak install Postman"
 flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
 fi
 
-# PKG=pop-os-shell
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Install Pop!_OS Shell"
-# git clone https://github.com/pop-os/shell && cd shell && make local-install && touch ../.installed-$PKG
-# cd ../ && rm -fr shell
-# fi
-
 # PKG=sencha
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Install Sencha CMD"
-# curl -sL http://cdn.sencha.com/cmd/7.3.0.19/no-jre/SenchaCmd-7.3.0.19-linux-amd64.sh.zip | bsdtar -xf - -C ./  && ./SenchaCmd-7.0.0.40-linux-amd64.sh && rm ./SenchaCmd-7.0.0.40-linux-amd64.sh && touch .installed-$PKG
+# curl -sL http://cdn.sencha.com/cmd/7.3.1.27/no-jre/SenchaCmd-7.3.1.27-linux-amd64.sh.zip | bsdtar -xf - -C ./  && ./SenchaCmd-7.3.1.27-linux-amd64.sh && rm ./SenchaCmd-7.3.1.27-linux-amd64.sh && touch .installed-$PKG
 # fi
 
 # PKG=zsh
