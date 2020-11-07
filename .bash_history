@@ -12,7 +12,6 @@ caffeinate -t 14400
 date '+%s'
 echo GRUB_CMDLINE_LINUX="mem_sleep_default=deep"
 sudo vim /etc/default/grub && sudo update-grub
-sudo kernelstub -a modprobe.blacklist=nouveau
 sudo kernelstub -a mem_sleep_default=deep
 sudo prime-select on-demand
 sudo vim /etc/gdm3/custom.conf
