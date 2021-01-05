@@ -216,7 +216,7 @@ echo "Apt install Git Flow"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-VER=v14.15.3
+VER=v14.15.4
 PKG=node-$VER-linux-x64
 if [ ! -f .installed-$PKG ];
 then
