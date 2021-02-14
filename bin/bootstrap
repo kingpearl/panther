@@ -216,7 +216,7 @@ echo "Apt install Git Flow"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-VER=v14.15.4
+VER=v14.15.5
 PKG=node-$VER-linux-x64
 if [ ! -f .installed-$PKG ];
 then
@@ -454,7 +454,7 @@ fi
 # sudo add-apt-repository "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 # sudo apt update
 # sudo apt install -y $PKG-6.1 && sudo usermod -aG vboxusers $USER && touch .installed-$PKG
-# curl -sO https://download.virtualbox.org/virtualbox/6.1.16/Oracle_VM_VirtualBox_Extension_Pack-6.1.16.vbox-extpack
+# curl -sO https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack
 # fi
 
 PKG=kvm
@@ -476,7 +476,7 @@ PKG=terraform
 if [ ! -f .installed-$PKG ];
 then
 echo "Install Terraform"
-curl -sL https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
+curl -sL https://releases.hashicorp.com/terraform/0.14.6/terraform_0.14.6_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
 fi
 
 # PKG=up
