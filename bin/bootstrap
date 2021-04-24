@@ -305,13 +305,6 @@ npm install -g npm
 # npm install -g $PKG && touch .installed-$PKG
 # fi
 
-# PKG=arc-theme
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install Arc Theme"
-# sudo apt install -y $PKG && touch .installed-$PKG
-# fi
-
 PKG=papirus-icon-theme
 if [ ! -f .installed-$PKG ];
 then
@@ -335,12 +328,12 @@ echo "Apt install Gnome Tweaks"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-# PKG=flatpak
-# if [ ! -f .installed-$PKG ];
-# then
-# echo "Apt install Flatpak"
-# sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
-# fi
+PKG=flatpak
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Flatpak"
+sudo apt install -y $PKG && sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && touch .installed-$PKG
+fi
 
 PKG=slack
 if [ ! -f .installed-$PKG ];
@@ -464,20 +457,20 @@ echo "Apt install KVM"
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager && sudo usermod -aG libvirt $USER && sudo usermod -a -G libvirt-qemu $USER && touch .installed-$PKG
 fi
 
-PKG=vagrant
-if [ ! -f .installed-$PKG ];
-then
-echo "Apt install Vagrant"
-sudo apt install -y $PKG && touch .installed-$PKG
+# PKG=vagrant
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Apt install Vagrant"
+# sudo apt install -y $PKG && touch .installed-$PKG
 # vagrant plugin install vagrant-kvm
-fi
+# fi
 
-PKG=terraform
-if [ ! -f .installed-$PKG ];
-then
-echo "Install Terraform"
-curl -sL https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
-fi
+# PKG=terraform
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Install Terraform"
+# curl -sL https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
+# fi
 
 # PKG=up
 # if [ ! -f .installed-$PKG ];
@@ -533,12 +526,12 @@ echo "Flatpak install Visual Studio Code"
 flatpak install -y flathub com.visualstudio.code && touch .installed-$PKG
 fi
 
-PKG=postman
-if [ ! -f .installed-$PKG ];
-then
-echo "Flatpak install Postman"
-flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
-fi
+# PKG=postman
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Flatpak install Postman"
+# flatpak install -y flathub com.getpostman.Postman && touch .installed-$PKG
+# fi
 
 # PKG=sencha
 # if [ ! -f .installed-$PKG ];
