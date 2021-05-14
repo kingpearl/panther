@@ -216,7 +216,7 @@ echo "Apt install Git Flow"
 sudo apt install -y $PKG && touch .installed-$PKG
 fi
 
-VER=v14.16.1
+VER=v14.17.0
 PKG=node-$VER-linux-x64
 if [ ! -f .installed-$PKG ];
 then
@@ -469,7 +469,7 @@ fi
 # if [ ! -f .installed-$PKG ];
 # then
 # echo "Install Terraform"
-# curl -sL https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
+# curl -sL https://releases.hashicorp.com/terraform/0.15.3/terraform_0.15.3_linux_amd64.zip | bsdtar -xf - -C ./ && chmod +x $PKG && mv $PKG /usr/local/bin/ && touch .installed-$PKG
 # fi
 
 # PKG=up
